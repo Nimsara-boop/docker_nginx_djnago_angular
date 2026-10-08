@@ -13,4 +13,4 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 # every script file needs a permission level if it is to be executed, so we need to give it permission to execute
 # "+x" means that we have permission to "execute" the file. 
 
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]`
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
