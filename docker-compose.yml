@@ -32,6 +32,8 @@ services:
 
   django_server:
     build: ./django_server
+    container_name: cont_django_server
+    restart: unless-stopped
     expose: 
         - "8000"
     links:
