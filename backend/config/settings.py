@@ -11,10 +11,17 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from datetime import timedelta
+import os
 from pathlib import Path
+
+# --- ADD THESE THREE LINES DIRECTLY BELOW PATH ---
+from dotenv import load_dotenv
+load_dotenv()
+# ------------------------------------------------
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 ANGULAR_DIR = BASE_DIR.parent / "frontend/dist/frontend/browser"
 
 
@@ -22,12 +29,10 @@ ANGULAR_DIR = BASE_DIR.parent / "frontend/dist/frontend/browser"
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = (
-    "django-insecure-g&lp-p4!xc53=r_$1kup%#-bmpo4h+1$gw9@!2jp5a3y%t@sg9"
-)
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = []
 
@@ -94,8 +99,12 @@ CORS_URLS_REGEX = r"^/api/.*$"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": os.getenv("DATABASE_NAME"),
+        "USER": os.getenv("DATABASE_USER"),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD"),
+        "HOST": os.getenv("DATABASE_HOST", "localhost"),
+        "PORT": os.getenv("DATABASE_PORT", "5432"),
     }
 }
 
@@ -161,3 +170,6 @@ REST_FRAMEWORK = {
         "config.renderers.CustomJSONRenderer",
     ],
 }
+
+
+
