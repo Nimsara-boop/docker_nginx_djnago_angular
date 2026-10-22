@@ -9,3 +9,6 @@ pillow==11.3.0
 ruff==0.3.7
 python-dotenv
 psycopg2-binary
+gunicorn==23.0.0
+redis
+
