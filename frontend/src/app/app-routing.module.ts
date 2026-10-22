@@ -11,6 +11,7 @@ import { FeedMenuEnum } from "./common/models/view/feed.view-model";
 import { ProfileRoutingData } from "./common/models/view/profile-routing-data.model";
 import { authenticationGuard } from "./common/guards/authentication.guard";
 
+  
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
