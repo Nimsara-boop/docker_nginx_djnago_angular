@@ -70,6 +70,21 @@ docker compose exec backend python manage.py search_index --rebuild
 
 Article search is available through the existing article list endpoint with the `search` query parameter, for example `/api/articles?search=django`.
 
+The backend container runs Django through uWSGI on port `8000`. Rebuild the backend image after changing its dependencies or startup command:
+
+```shell
+docker compose build backend
+docker compose up -d
+docker compose logs -f backend
+```
+
+Verify that the container is running uWSGI and listening on port `8000`:
+
+```shell
+docker compose exec backend uwsgi --version
+docker compose ps
+```
+
 - Run the Django development server:
 ```shell
 # Run server
