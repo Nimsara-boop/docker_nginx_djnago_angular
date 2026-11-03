@@ -10,16 +10,15 @@ import { constructLoginUrlTree } from "../../../common/guards/authentication.gua
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-article-comments',
-  templateUrl: './article-comments.component.html',
-  styleUrl: './article-comments.component.scss',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    RouterModule
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-article-comments',
+    templateUrl: './article-comments.component.html',
+    styleUrl: './article-comments.component.scss',
+    imports: [
+        ReactiveFormsModule,
+        CommonModule,
+        RouterModule
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleCommentsComponent {
   public readonly DEFAULT_PROFILE_IMAGE = DEFAULT_PROFILE_IMAGE;

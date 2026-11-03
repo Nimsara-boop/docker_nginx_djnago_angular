@@ -26,9 +26,6 @@ class Tag(models.Model):
         return self.name
 
 
-@receiver(pre_save, sender=Tag)
-def tag_pre_save(sender, instance, **kwargs):
-    instance.slug = slugify(instance.name)
 
 
 class Article(models.Model):

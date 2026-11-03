@@ -16,11 +16,10 @@ interface MenuItem {
 }
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
-  standalone: true,
-  imports: [CommonModule, RouterModule]
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
+    imports: [CommonModule, RouterModule]
 })
 export class HeaderComponent {
   public currentUser$: Observable<User | null>;

@@ -8,15 +8,14 @@ import { UserService } from "../../common/services/api/user.service";
 import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
 
 @Component({
-  selector: 'app-user-settings',
-  templateUrl: './user-settings.component.html',
-  styleUrl: './user-settings.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    ErrorMessageComponent
-  ]
+    selector: 'app-user-settings',
+    templateUrl: './user-settings.component.html',
+    styleUrl: './user-settings.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        ReactiveFormsModule,
+        ErrorMessageComponent
+    ]
 })
 export class UserSettingsComponent {
 

@@ -8,16 +8,15 @@ import { Router, RouterModule } from '@angular/router';
 import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    ErrorMessageComponent,
-    ReactiveFormsModule,
-    RouterModule
-  ],
-  standalone: true
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        ErrorMessageComponent,
+        ReactiveFormsModule,
+        RouterModule
+    ]
 })
 export class RegisterComponent {
   public mainForm: FormGroup<RegisterFormViewModel>;

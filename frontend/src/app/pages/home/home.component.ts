@@ -6,17 +6,17 @@ import { NgClass } from '@angular/common';
 import { ArticlesFeedComponent } from '../article/feed/articles-feed.component';
 import { ArticleTagsComponent } from '../article/article-tags/article-tags.component';
 
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
-  standalone: true,
-  imports: [
-    NgClass,
-    ArticlesFeedComponent,
-    ArticleTagsComponent
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss',
+    imports: [
+        NgClass,
+        ArticlesFeedComponent,
+        ArticleTagsComponent, 
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class HomeComponent {

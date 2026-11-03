@@ -13,17 +13,16 @@ import { MarkdownComponent } from 'ngx-markdown';
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
-  selector: 'app-article',
-  templateUrl: './article.component.html',
-  styleUrl: './article.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    NgTemplateOutlet,
-    ArticleMetaComponent,
-    ArticleCommentsComponent,
-    MarkdownComponent
-  ],
-  standalone: true
+    selector: 'app-article',
+    templateUrl: './article.component.html',
+    styleUrl: './article.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        NgTemplateOutlet,
+        ArticleMetaComponent,
+        ArticleCommentsComponent,
+        MarkdownComponent
+    ]
 })
 export class ArticleComponent {
 

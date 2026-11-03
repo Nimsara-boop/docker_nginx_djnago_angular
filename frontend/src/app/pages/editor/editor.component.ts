@@ -7,15 +7,14 @@ import { ActivatedRoute } from "@angular/router";
 import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
 
 @Component({
-  selector: 'app-editor',
-  templateUrl: './editor.component.html',
-  styleUrl: './editor.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    ErrorMessageComponent,
-    ReactiveFormsModule
-  ],
-  standalone: true
+    selector: 'app-editor',
+    templateUrl: './editor.component.html',
+    styleUrl: './editor.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        ErrorMessageComponent,
+        ReactiveFormsModule
+    ]
 })
 export class EditorComponent {
   public errors = signal({});

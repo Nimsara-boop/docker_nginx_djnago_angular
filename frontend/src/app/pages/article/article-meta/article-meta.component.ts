@@ -5,15 +5,14 @@ import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-article-meta',
-  templateUrl: './article-meta.component.html',
-  styleUrl: './article-meta.component.scss',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    RouterModule,
-    DatePipe
-  ]
+    selector: 'app-article-meta',
+    templateUrl: './article-meta.component.html',
+    styleUrl: './article-meta.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        RouterModule,
+        DatePipe
+    ]
 })
 export class ArticleMetaComponent {
 

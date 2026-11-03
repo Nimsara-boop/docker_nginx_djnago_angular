@@ -11,23 +11,31 @@ import { FeedMenuEnum } from "./common/models/view/feed.view-model";
 import { ProfileRoutingData } from "./common/models/view/profile-routing-data.model";
 import { authenticationGuard } from "./common/guards/authentication.guard";
 
-  
+
 const routes: Routes = [
+
   { path: '', component: HomeComponent },
+
   { path: 'login', component: LoginComponent },
+
   { path: 'register', component: RegisterComponent },
+
   { path: 'settings', component: UserSettingsComponent, canActivate: [authenticationGuard] },
+
   {
     path: 'editor',
-    canActivateChild: [authenticationGuard],
     children: [
-    { path: '', component: EditorComponent },
-    { path: ':slug', component: EditorComponent }
+      { path: '', component: EditorComponent },
+      { path: ':slug', component: EditorComponent }
     ]
   },
+
   { path: 'article/:slug', component: ArticleComponent },
+
   {
-    path: 'profile/:username', children: [
+    path: 'profile/:username',
+    
+    children: [
       {
         path: '',
         component: ProfileComponent,
@@ -55,7 +63,7 @@ const routes: Routes = [
     ],
 
   },
-  { path: '**', redirectTo: '/' }
+  { path: '**', redirectTo: '/'}
 ];
 
 @NgModule({

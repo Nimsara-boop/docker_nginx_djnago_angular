@@ -3,12 +3,11 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { AbstractControl, ReactiveFormsModule } from "@angular/forms";
 
 @Component({
-  selector: 'app-error-message',
-  templateUrl: './error-message.component.html',
-  styleUrl: './error-message.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+    selector: 'app-error-message',
+    templateUrl: './error-message.component.html',
+    styleUrl: './error-message.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, ReactiveFormsModule]
 })
 export class ErrorMessageComponent {
   public form = input<AbstractControl>();

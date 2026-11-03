@@ -12,16 +12,15 @@ import { ArticlesFeedComponent } from '../article/feed/articles-feed.component';
 import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss',
-  standalone: true,
-  imports: [
-    ArticlesFeedComponent,
-    NgClass,
-    RouterModule
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-profile',
+    templateUrl: './profile.component.html',
+    styleUrl: './profile.component.scss',
+    imports: [
+        ArticlesFeedComponent,
+        NgClass,
+        RouterModule
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileComponent {
   public readonly DEFAULT_PROFILE_IMAGE = DEFAULT_PROFILE_IMAGE;

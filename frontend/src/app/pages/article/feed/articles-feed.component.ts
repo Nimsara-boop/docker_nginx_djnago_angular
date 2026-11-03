@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, SimpleChanges, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, signal, ChangeDetectionStrategy, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { FeedMenuEnum } from "../../../common/models/view/feed.view-model";
 import { ArticleService } from "../../../common/services/api/article.service";
 import { Article, ArticleResponse, ArticlesResponse, QueryArticlesParams } from "../../../common/models/api/article.model";
@@ -10,16 +11,15 @@ import { CommonModule } from '@angular/common';
 import { ArticleMetaComponent } from '../article-meta/article-meta.component';
 
 @Component({
-  selector: 'app-articles-feed',
-  templateUrl: './articles-feed.component.html',
-  styleUrl: './articles-feed.component.scss',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    CommonModule,
-    RouterModule,
-    ArticleMetaComponent
-  ]
+    selector: 'app-articles-feed',
+    templateUrl: './articles-feed.component.html',
+    styleUrl: './articles-feed.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        CommonModule,
+        RouterModule,
+        ArticleMetaComponent
+    ]
 })
 export class ArticlesFeedComponent implements OnChanges {
   @Input() feedMenuId?: FeedMenuEnum;
@@ -29,6 +29,7 @@ export class ArticlesFeedComponent implements OnChanges {
   public activePageIndex = signal(0);
   public isLoading = signal(true);
   public totalPages = 0;
+  private readonly _platformId = inject(PLATFORM_ID);
 
   constructor(
     private readonly _articleService: ArticleService,
@@ -44,6 +45,11 @@ export class ArticlesFeedComponent implements OnChanges {
   }
 
   private _queryFeed(): void {
+    if (!isPlatformBrowser(this._platformId)) {
+      this.isLoading.set(false);
+      return;
+    }
+
     this.isLoading.set(true);
     this._constructQueryRequest()
       .pipe(finalize(() => this.isLoading.set(false)))

@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "django_filters",
+    "django_elasticsearch_dsl",
     "users.apps.UsersConfig",
     "articles.apps.ArticlesConfig",
 ]
@@ -117,6 +118,16 @@ CACHES = {
         "TIMEOUT": 300
     }
 }
+
+ELASTICSEARCH_DSL = {
+    "default": {
+        "hosts": os.getenv("ELASTICSEARCH_URL", "http://localhost:9200"),
+    }
+}
+ELASTICSEARCH_DSL_AUTOSYNC = (
+    os.getenv("ELASTICSEARCH_DSL_AUTOSYNC", "false").lower() == "true"
+)
+ELASTICSEARCH_DSL_AUTO_REFRESH = False
 
 
 # Password validation
@@ -180,5 +191,3 @@ REST_FRAMEWORK = {
         "config.renderers.CustomJSONRenderer",
     ],
 }
-
-

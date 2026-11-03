@@ -23,8 +23,10 @@ export class RequestHelperService {
     return this._httpClient.get(this._decorateUrl(url), options);
   }
 
-  public post(url: string, body: any): Observable<any> {
-    return this._httpClient.post(this._decorateUrl(url), body, {headers: this._constructRequestHeaders()});
+  public post(url: string, body: any, includeAuth = true): Observable<any> {
+    return this._httpClient.post(this._decorateUrl(url), body, {
+      headers: includeAuth ? this._constructRequestHeaders() : new HttpHeaders()
+    });
   }
 
   public put(url: string, body: any): Observable<any> {

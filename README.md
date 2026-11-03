@@ -62,6 +62,14 @@ pip install -r backend/requirements.txt
 python backend/manage.py migrate
 ```
 
+- When using Docker Compose, Elasticsearch runs in its own container. Build the article index after starting the services:
+```shell
+docker compose up -d --build
+docker compose exec backend python manage.py search_index --rebuild
+```
+
+Article search is available through the existing article list endpoint with the `search` query parameter, for example `/api/articles?search=django`.
+
 - Run the Django development server:
 ```shell
 # Run server

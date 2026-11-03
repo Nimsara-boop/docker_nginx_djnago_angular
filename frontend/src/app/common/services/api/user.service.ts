@@ -13,11 +13,11 @@ export class UserService {
   ) { }
 
   public registerUser(payload: CreateUserPayload): Observable<void> {
-    return this._requestHelper.post('/users', payload);
+    return this._requestHelper.post('/users', payload, false);
   }
 
   public userLogin(payload: LoginUserPayload): Observable<LoginUserResponse> {
-    return this._requestHelper.post('/users/login', payload);
+    return this._requestHelper.post('/users/login', payload, false);
   }
 
   public getCurrentUser(): Observable<LoginUserResponse> {

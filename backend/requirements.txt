@@ -11,4 +11,5 @@ python-dotenv
 psycopg2-binary
 gunicorn==23.0.0
 redis
-
+django-elasticsearch-dsl==8.0
+elasticsearch==8.18.0

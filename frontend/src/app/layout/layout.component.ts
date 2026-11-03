@@ -4,12 +4,11 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-layout',
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.scss',
-  imports: [HeaderComponent, FooterComponent, RouterModule],
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-layout',
+    templateUrl: './layout.component.html',
+    styleUrl: './layout.component.scss',
+    imports: [HeaderComponent, FooterComponent, RouterModule],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent {
 

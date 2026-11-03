@@ -9,16 +9,15 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ErrorMessageComponent } from '../../shared/error-message/error-message.component';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    ErrorMessageComponent,
-    ReactiveFormsModule,
-    RouterModule
-  ]
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        ErrorMessageComponent,
+        ReactiveFormsModule,
+        RouterModule
+    ]
 })
 export class LoginComponent {
   public errors = signal({});
