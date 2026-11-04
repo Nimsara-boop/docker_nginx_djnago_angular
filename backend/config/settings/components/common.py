@@ -1,3 +1,18 @@
+from pathlib import Path
+
+from config.settings.components import BASE_DIR, config
+
+from datetime import timedelta
+import os
+
+# Build paths inside the project
+
+INSTALLED_APPS = [
+'django.contrib.admin',
+'django.contrib.auth',
+# … other apps
+]
+
 """
 Django settings for backend project.
 
@@ -10,9 +25,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-from datetime import timedelta
-import os
-from pathlib import Path
+
 
 # --- ADD THESE THREE LINES DIRECTLY BELOW PATH ---
 from dotenv import load_dotenv
@@ -20,7 +33,6 @@ load_dotenv()
 # ------------------------------------------------
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 ANGULAR_DIR = BASE_DIR.parent / "frontend/dist/frontend/browser"
 

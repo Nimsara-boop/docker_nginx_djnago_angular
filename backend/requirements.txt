@@ -13,3 +13,4 @@ uwsgi
 redis
 django-elasticsearch-dsl==8.0
 elasticsearch==8.18.0
+django-split-settings

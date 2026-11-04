@@ -10,7 +10,9 @@ services:
       - database:/var/lib/postgresql/data
     
   backend:
-    build: backend
+    build: 
+      context: .
+      dockerfile: backend/Dockerfile
     container_name: back_cont
     depends_on:
       db:
