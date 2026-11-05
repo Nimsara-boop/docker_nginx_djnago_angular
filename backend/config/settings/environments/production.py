@@ -1,8 +1,4 @@
-DATABASES = {
-    "default": {
-        "SCHEMA":"resource"
-    }
+DATABASES["default"]["options"] = {
+   "options": "-c search_path=resource,public"
 }
-
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']

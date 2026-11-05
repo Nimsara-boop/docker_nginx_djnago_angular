@@ -1,7 +1,2 @@
-DATABASES = {
-    "default": {
-        "SCHEMA":"demo"
-    }
-}
+DATABASES["default"]["OPTIONS"] = {"options": "-c search_path=demo"}
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
