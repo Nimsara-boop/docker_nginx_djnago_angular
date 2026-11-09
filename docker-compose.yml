@@ -8,11 +8,19 @@ services:
       - .env
     volumes:
       - database:/var/lib/postgresql/data
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: nimsarakarunaratne@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: Conduit@2026
+    ports:
+      - "127.0.0.1:5050:80"
     
   backend:
     build: backend
     environment:
-      DJANGO_ENV: development
+      DJANGO_ENV: staging
     container_name: back_cont
     depends_on:
       db:
@@ -61,9 +69,22 @@ services:
         - ./frontend/dist:/app/dist
         - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
-        - 4200:80
+        - "4200:80"
     depends_on:
         - backend
+                
+  nginx:
+    image: nginx:alpine  
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./backend-drf/static:/static
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    depends_on:
+      - frontend
+      - backend
 
 volumes:
   database:

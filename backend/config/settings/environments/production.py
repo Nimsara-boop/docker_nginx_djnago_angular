@@ -1,4 +1,4 @@
 DATABASES["default"]["options"] = {
-   "options": "-c search_path=resource,public"
+   "options": "-c search_path=resource"
 }
-DEBUG = True
+DEBUG = False
