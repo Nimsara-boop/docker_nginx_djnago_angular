@@ -28,5 +28,12 @@ jobs:
     - name: Run Tests
       env: 
         DJANGO_ENV: "development"
+        DJANGO_SECRET_KEY: "django-insecure-g&lp-p4!xc53=r_$1kup%#-bmpo4h+1$gw9@!2jp5a3y%t@sg9"
+        DATABASE_ENGINE: postgresql_psycopg2
+        DATABASE_NAME: realworld
+        DATABASE_USER: postgres
+        DATABASE_PASSWORD: Tinkytinky@3436
+        DATABASE_HOST: db
+        DATABASE_PORT: 5432
       run: |
         python backend/manage.py test
