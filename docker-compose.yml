@@ -20,7 +20,7 @@ services:
   backend:
     build: backend
     environment:
-      DJANGO_ENV: staging
+      DJANGO_ENV: development
     container_name: back_cont
     depends_on:
       db:
