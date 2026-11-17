@@ -1,0 +1,23 @@
+on: push
+name: cleans, build and test app (mobile - android)
+jobs:
+  build:
+    name: install dependencies
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: clean stale build and cache
+      uses: ./devskim
+      with:
+        args: clean
+
+    - name: install dependencies
+      uses: ./devskim
+      with:
+        args: pub get
+
+    - name: build apk
+      uses: ./devskim
+      with:
+        args: build apk --release
